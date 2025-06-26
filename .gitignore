@@ -197,4 +197,4 @@ cython_debug/
 **/*.docx
 
 # Host File
-**/host.json
+**/conf/host.json
