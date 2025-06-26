@@ -1,14 +1,13 @@
 import sys
-sys.path.insert(0, '.')
+sys.path.insert(0, './src')
 
+from repositories.base import DBManager
 from mysql.connector import IntegrityError
+from models.bill import Bill
 
-from src.bill import Bill
-from db.db_manager import DBManager
-
-class DBBill(DBManager):
-    def __init__(self):
-        super().__init__()
+class BillDBManager(DBManager):
+    def __init__(self, conn):
+        super().__init__(conn)
 
     def register_bill(self, user_id, description, monto, status) -> bool:
         query = "INSERT INTO bills (user_id, description, monto, status_id) VALUES (%s, %s, %s, (SELECT id FROM `bill_status` WHERE status = %s))"
