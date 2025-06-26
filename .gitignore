@@ -195,3 +195,6 @@ cython_debug/
 
 # Documents
 **/*.docx
+
+# Host File
+**/host.json

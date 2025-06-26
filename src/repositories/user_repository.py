@@ -1,14 +1,13 @@
 import sys
 sys.path.insert(0, '.')
 
+from repositories.base import DBManager
 from mysql.connector import IntegrityError
+from models.user import User
 
-from src.user import User
-from db.db_manager import DBManager
-
-class DBUser(DBManager):
-    def __init__(self):
-        super().__init__()
+class UserDBManager(DBManager):
+    def __init__(self, conn):
+        super().__init__(conn)
 
     def register_user(self, name, surname, email, phone_number=None, address=None) -> bool:
         query = "INSERT INTO users (name, surname, email, phone, address) VALUES (%s, %s, %s, %s, %s)"

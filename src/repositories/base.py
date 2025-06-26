@@ -1,20 +1,7 @@
-import mysql.connector
-import json
-
-conf = json.load(open("./conf/host.json", "r"))
-
-mydb = mysql.connector.connect(
-  host=conf["host"],
-  port=conf["port"],
-  user=conf["user"],
-  password=conf["password"],
-  database=conf["database"]
-)
-
 class DBManager:
-  def __init__(self):
-    self.connection = mydb
-    self.cursor = mydb.cursor()
+  def __init__(self, conn):
+    self.connection = conn
+    self.cursor = conn.cursor()
 
   def execute_query(self, query, params=None):
     if params:
