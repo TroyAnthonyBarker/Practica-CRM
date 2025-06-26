@@ -57,15 +57,21 @@ PRACTICA_CRM/
 
 ## Instalación
 
+### Clonación de Repositorio
+
 ```bash
 git clone https://github.com/tu_usuario/EJERCICIO_CRM.git
 cd EJERCICIO_CRM
 ```
 
+### Creación de entorno virtual de python
+
 ```bash
 python -m venv .venv
 source .venv/bin/activate  # En Windows: .venv\Scripts\activate
 ```
+
+### Instalación de dependencias
 
 ```bash
 pip install -r requirements.txt
