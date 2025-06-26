@@ -5,28 +5,48 @@ Este proyecto es un sistema CRM (Customer Relationship Management) básico, que 
 ## Estructura del proyecto
 
 ```
-EJERCICIO_CRM/
+PRACTICA_CRM/
 │
-├── .venv/                  # Entorno virtual (no incluido en el repositorio)
+├── .venv/
 ├── conf/
-│   └── host.json           # Configuración del host
+│   └── host.json
 │
-├── db/                     # Lógica y scripts relacionados con la base de datos
-│   ├── startup/
-│   │   ├── create_db.sql       # Script para creación inicial de la base de datos
-│   │   ├── db_creation.py      # Script Python que ejecuta la creación de la DB
-│   │   ├── db_inserts.py       # Script Python para insertar datos iniciales
-│   │   └── inserts.sql         # Script SQL para insertar datos
-│   ├── db_bill.py          # Operaciones sobre las facturas
-│   ├── db_manager.py       # Gestión general de la base de datos
-│   └── db_user.py          # Operaciones sobre los usuarios
+├── db/
+│   └── startup/
+│       ├── create_db.sql
+│       ├── db_creation.py
+│       ├── db_inserts.py
+│       └── inserts.sql
 │
-├── src/                    # Código fuente de la aplicación
-│   ├── bill.py             # Lógica de facturación
-│   ├── main.py             # Script principal para ejecutar la aplicación
-│   └── user.py             # Lógica relacionada con los usuarios
+├── src/
+│   ├── controllers
+│   │   ├── bill_controller.py  
+│   │   └── user_controller.py
+│   │
+│   ├── models
+│   │   ├── bill.py
+│   │   └── user.py
+│   │
+│   ├── repositories
+│   │   ├── base.py
+│   │   ├── bill_repository.py
+│   │   └── user_repository.py
+│   │
+│   ├── services
+│   │   ├── bill_service.py
+│   │   └── user_service.py
+│   │
+│   ├── singleton
+│   │   ├── db.py
+│   │   └── format.py
+│   │
+│   ├── main.py
+│   └── utils.py
 │
-├── Documento_de_Analisis.docx  # Documento de análisis funcional y técnico
+├── .gitignore
+├── LICENSE
+├── README.md
+└── requirements.txt
 ```
 
 ## Requisitos
@@ -40,8 +60,14 @@ EJERCICIO_CRM/
 ```bash
 git clone https://github.com/tu_usuario/EJERCICIO_CRM.git
 cd EJERCICIO_CRM
+```
+
+```bash
 python -m venv .venv
 source .venv/bin/activate  # En Windows: .venv\Scripts\activate
+```
+
+```bash
 pip install -r requirements.txt
 ```
 
